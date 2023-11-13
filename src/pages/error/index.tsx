@@ -1,4 +1,4 @@
-import { useRouteError } from "react-router-dom";
+import { useRouteError, Link } from "react-router-dom";
 
 interface ErrorData {
   statusText?: string;
@@ -19,9 +19,18 @@ export default function ErrorPage() {
         <p className=" text-lg font-normal">
           Sorry, an unexpected error has occurred.
         </p>
-        <p className="font-thin text-3xl">
+        <p className="font-thin text-3xl mb-3">
           {error && <i>{error.statusText || error.message} </i>}
         </p>
+        <Link
+          className="p-2 space-y-2 bg-sky-600 border-solid
+           border-gray-200 rounded-xl shadow-md shadow-gray-300
+           text-gray-200"
+          to="/"
+        >
+          {" "}
+          Go Back
+        </Link>
       </div>
     </div>
   );
