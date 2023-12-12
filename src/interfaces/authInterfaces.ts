@@ -15,4 +15,5 @@ export interface registerProps {
     email?: string;
     jwToken: string;
     jwtExpires: string;
+    sessionDuration: string;
   }
