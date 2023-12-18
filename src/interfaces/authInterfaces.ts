@@ -3,9 +3,10 @@ import Cookies from "universal-cookie";
 export interface registerProps {
     email: string;
     username: string;
-    birthday: string;
     password: string;
     repeatpassword: string;
+    birthday: string;
+    ipAddress?:string;
   }
 
   export interface UserCookies {
