@@ -8,11 +8,18 @@ const registerSchema: ZodType<registerProps> = z
       .string()
       .min(1, { message: "Username cannot be empty" })
       .max(50, { message: "Max Username length is 50" }),
-      birthday: z.date().refine(
-      (date) => {
-        return date <= new Date();
+    //   birthday: z.date().refine(
+    //   (date) => {
+    //     return date <= new Date();
+    //   },
+    //   { message: "Invalid Date" }
+    // ),
+    birthday: z.string().refine(
+      (dateString) => {
+        const date = new Date(dateString);
+        return !isNaN(date.getTime());
       },
-      { message: "Invalid Date" }
+      { message: "Date format is invalid" }
     ),
     password: z.string().regex(/^(?=.*[A-Z])(?=.*[!@#$_%^&*]).{6,15}$/, {
       message:
