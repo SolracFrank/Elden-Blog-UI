@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 export interface registerProps {
     email: string;
     username: string;
-    birthday: Date;
+    birthday: string;
     password: string;
     repeatpassword: string;
   }
@@ -17,3 +17,9 @@ export interface registerProps {
     jwtExpires: string;
     sessionDuration: string;
   }
+
+  export interface Login {
+    email: string;
+    password: string;
+  }
+  
