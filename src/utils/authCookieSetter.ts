@@ -55,6 +55,6 @@ export const getUserCookies = (cookies: Cookies) => {
     email,
     jwToken,
     jwtExpires: jwtExpiresDecoded,
-    sessionDuration : sessionDurationDecoded
+    sessionDuration: sessionDurationDecoded,
   };
 };

@@ -27,6 +27,7 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true,
 });
 
 api.interceptors.request.use(
@@ -58,7 +59,7 @@ api.interceptors.response.use(
 
     if (axiosError.response?.status === 500) {
       const problemDetail = axiosError.response?.data as ProblemDetails;
-      toast.error(`${problemDetail?.errors}`);
+      toast.error(`${problemDetail.detail} ${problemDetail?.errors}`);
 
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;

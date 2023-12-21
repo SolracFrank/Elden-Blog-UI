@@ -19,7 +19,7 @@ export interface registerProps {
     sessionDuration: string;
   }
 
-  export interface Login {
+  export interface loginProps {
     email: string;
     password: string;
   }
