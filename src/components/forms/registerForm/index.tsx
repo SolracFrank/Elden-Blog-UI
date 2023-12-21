@@ -30,7 +30,6 @@ const RegisterForm = () => {
 
         setZodErros(errors);
         setErrors(errors);
-        console.log("errors: ", errors); //101 TO DELETE
       });
       return false;
     }
@@ -48,17 +47,14 @@ const RegisterForm = () => {
     onSubmit: async (values: registerProps) => {
       const isValid = await ValidateOnSubmit(values, setErrors);
       if (!isValid) {
-        console.log("Invalid inputs, ERRORS: ", values); // 101 TO DELETE
         return;
       }
-      console.log("Correct Values: ", values); // 101 TO DELETE
-      console.log("Sending to API");
-      
+
       setIsLoading(true);
       try {
         const response = await registerUser(values);
-        console.log('api response: ',response); // 101 TO DELETE
-        
+        console.log("api response: ", response);
+
         if (response.status === 200 || response.status === 201) {
           navigate("/login");
         }
@@ -175,7 +171,6 @@ const RegisterForm = () => {
             type="submit"
             disabled={isLoading}
             value={isLoading ? "SIGNING" : "SIGN UP"}
-
           >
             Submit
           </button>
