@@ -23,4 +23,13 @@ export interface registerProps {
     email: string;
     password: string;
   }
+
+  export interface IRefreshSession
+  {
+    userId: string;
+  }
   
+  export interface IValidateSession
+  {
+    userId: string;
+  }
