@@ -10,9 +10,15 @@ export const setUserCookies = ({
   jwToken,
   sessionDuration,
 }: UserCookies) => {
-  cookies.set("userId", userId, {});
-  cookies.set("userName", userName, {});
-  cookies.set("email", email, {});
+  cookies.set("userId", userId, {
+    expires: new Date(sessionDuration),
+  });
+  cookies.set("userName", userName, {
+    expires: new Date(sessionDuration),
+  });
+  cookies.set("email", email, {
+    expires: new Date(sessionDuration),
+  });
   cookies.set("JWToken", jwToken, {
     expires: new Date(jwtExpires),
   });
