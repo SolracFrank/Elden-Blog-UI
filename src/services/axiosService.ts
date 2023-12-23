@@ -63,10 +63,9 @@ api.interceptors.response.use(
 
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
-
+        
         const {
           userId,
-          jwToken: oldJwtToken,
           sessionDuration,
         } = getUserCookies(cookies);
 
@@ -85,9 +84,8 @@ api.interceptors.response.use(
           isRefreshingToken = true;
         }
         try {
-          const res = await api.post("/authorization/refreshjwt", {
-            userId,
-            oldJwtToken,
+          const res = await api.post("/v1/Auth/refresh-token", {
+            userId
           });
           const newToken = res.data.jwToken;
           await setUserCookies({
